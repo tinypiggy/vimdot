@@ -1,0 +1,2 @@
+# vimdot
+my neovim config
