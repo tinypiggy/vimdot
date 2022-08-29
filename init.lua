@@ -1,4 +1,1 @@
-
-require('plugins')
-
-require('lsp')
+require('core')

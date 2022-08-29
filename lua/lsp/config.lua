@@ -52,6 +52,10 @@ require('lspconfig')['rust_analyzer'].setup{
       ["rust-analyzer"] = {}
     }
 }
+require('lspcinfig')['lua_luaguage_server'].setup{
+    on_attach = on_attach,
+    
+}
 
 require("mason").setup({
     ui = {
