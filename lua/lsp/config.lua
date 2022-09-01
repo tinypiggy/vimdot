@@ -36,6 +36,7 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
+
 require('lspconfig')['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
@@ -52,9 +53,32 @@ require('lspconfig')['rust_analyzer'].setup{
       ["rust-analyzer"] = {}
     }
 }
-require('lspconfig')['lua_luaguage_server'].setup{
+
+-- lua config
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
+require('lspconfig')['sumneko_lua'].setup{
     on_attach = on_attach,
-    
+    flags = lsp_flags,
+    setting = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+		path = runtime_path,
+	    }
+	},
+	diagnostics = {
+            globals = {'vim'},
+	},
+	workspace = {
+            library = vim.api.nvim_get_runtime_file('', true),
+	},
+	telemetry = {
+            enable = false,
+	},
+    },
 }
 
 require("mason").setup({
