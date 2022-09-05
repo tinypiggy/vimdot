@@ -1,3 +1,5 @@
 require('lsp.config')
 
-require('lsp.completion.config')
+require('lsp.nvim-completion')
+
+require('lsp.nvim-formatting')

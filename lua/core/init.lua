@@ -9,4 +9,6 @@ end
 -- load modules
 require('core.basic')
 require('core.plugins')
+require('core.side-tree')
+require('core.treesitter')
 require('lsp')
