@@ -6,8 +6,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd 'packadd packer.nvim'
 end
 
-require('core.plugins')
-
-require('lsp')
-
+-- load modules
 require('core.basic')
+require('core.plugins')
+require('lsp')

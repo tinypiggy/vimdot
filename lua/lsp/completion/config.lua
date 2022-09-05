@@ -1,11 +1,10 @@
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,
@@ -62,11 +61,11 @@ cmp.setup {
   -- 使用lspkind-nvim显示类型图标
   formatting = {
     format = lspkind.cmp_format({
-      with_text = true, -- do not show text alongside icons
+    with_text = true, -- do not show text alongside icons
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      before = function (entry, vim_item)
+      before = function(entry, vim_item)
         -- Source 显示提示来源
-        vim_item.menu = "["..string.upper(entry.source.name).."]"
+        vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
         return vim_item
       end
     })
@@ -85,6 +84,6 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
     { name = 'path' }
   }, {
-      { name = 'cmdline' }
-    })
+    { name = 'cmdline' }
+  })
 })
