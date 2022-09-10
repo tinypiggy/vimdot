@@ -1,5 +1,17 @@
-require('lsp.config')
+-- init lsp-installer mason
+require("mason").setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
 
-require('lsp.nvim-completion')
+-- load modules
+require("lsp.setup")
 
-require('lsp.nvim-formatting')
+require("lsp.nvim-completion")
+
+require("lsp.nvim-formatting")

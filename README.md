@@ -1,8 +1,11 @@
 # vimdot
 my neovim config
 
-1. 
+1. requirements 依赖
 
-```bash
-
-```
+- stylua 
+- prettier
+- go
+- node
+- pip (neovim module)
+- xclip xsel lemonade (clipborad)

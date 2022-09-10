@@ -1,24 +1,11 @@
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- config lua language server
+
+local runtime_path = vim.split(package.path, ",")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-local lspconfig = require("lspconfig")
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
--- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
-
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
-
-vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
--- nvim-tree
--- alt + n 键打开关闭tree
-vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -29,6 +16,7 @@ local on_attach = function(client, bufnr)
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
@@ -43,28 +31,18 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
 
 	-- 禁用格式化功能，交给专门插件插件处理
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 end
 
-local lsp_flags = {
+local flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
 }
 
--- lua config
-
-local runtime_path = vim.split(package.path, ",")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-lspconfig.sumneko_lua.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	capabilities = capabilities,
+local opts = {
 	settings = {
 		Lua = {
 			runtime = {
@@ -75,6 +53,7 @@ lspconfig.sumneko_lua.setup({
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
 				globals = { "vim" },
+				checkThirdParty = false,
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
@@ -86,13 +65,9 @@ lspconfig.sumneko_lua.setup({
 			},
 		},
 	},
-})
-require("mason").setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
-})
+	on_attach = on_attach,
+	flags = flags,
+	capabilities = capabilities,
+}
+
+return require("lua-dev").setup({ lspconfig = opts })
