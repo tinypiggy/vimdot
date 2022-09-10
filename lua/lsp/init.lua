@@ -14,4 +14,4 @@ require("lsp.setup")
 
 require("lsp.nvim-completion")
 
-require("lsp.nvim-formatting")
+require("lsp.null-ls")

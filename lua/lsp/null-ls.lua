@@ -39,7 +39,7 @@ null_ls.setup({
 		-- python
 		-- pip install black
 		-- asdf reshim python
-		formatting.black.with({ extra_args = { "--fast" } }),
+		-- formatting.black.with({ extra_args = { "--fast" } }),
 
 		-- code code_actions
 		code_actions.gitsigns,

@@ -37,4 +37,29 @@ return require("packer").startup(function(use)
 
 	-- git
 	use("lewis6991/gitsigns.nvim")
+	-- telescope
+	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+	-- project
+	use("ahmedkhalf/project.nvim")
+	-- bufferline
+	use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
+	-- lualine
+	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+	use("arkav/lualine-lsp-progress")
+	--------------------- colorschemes --------------------
+	-- tokyonight
+	use("folke/tokyonight.nvim")
+	-- OceanicNext
+	use("mhartington/oceanic-next")
+	-- gruvbox
+	use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
+	-- zephyr 暂时不推荐，详见上边解释
+	-- use("glepnir/zephyr-nvim")
+	-- nord
+	use("shaunsingh/nord.nvim")
+	-- onedark
+	use("ful1e5/onedark.nvim")
+	-- nightfox
+	use("EdenEast/nightfox.nvim")
+	-------------------------------------------------------
 end)
