@@ -23,8 +23,6 @@ vim.o.softtabstop = 2
 vim.o.smartindent = true
 vim.o.autoindent = true
 
--- vim.o.nobackup = true
--- vim.o.noswapfile = true
 -- 搜索大小写不敏感，除非包含大写
 vim.o.ignorecase = true
 vim.o.smartcase = true

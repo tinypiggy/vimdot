@@ -6,7 +6,8 @@ local servers = {
 	html = require("lsp.lang.html"),
 	jsonls = require("lsp.lang.json"),
 	tsserver = require("lsp.lang.ts"),
-	-- vuels = require("lsp.lang.vue"),
+	vuels = require("lsp.lang.vue"),
+	emmet_ls = require("lsp.lang.emmet"),
 }
 
 local opts = { noremap = true, silent = true }

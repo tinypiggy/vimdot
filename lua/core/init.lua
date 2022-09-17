@@ -36,7 +36,10 @@ require("core.telescope")
 require("core.bufferline")
 require("core.lualine")
 require("core.project")
-
+require("core.gitsign")
+require("core.comment")
+require("core.toggleterm")
 require("core.autocmd")
 
 require("lsp")
+require("debug")

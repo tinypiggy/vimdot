@@ -46,7 +46,7 @@ autocmd("BufWritePost", {
 	-- autocmd BufWritePost plugins.lua source <afile> | PackerSync
 	callback = function()
 		if vim.fn.expand("<afile>") == "lua/core/plugins.lua" then
-			vim.api.nvim_command("source lua/plugins.lua")
+			vim.api.nvim_command("source lua/core/plugins.lua")
 			vim.api.nvim_command("PackerSync")
 		end
 	end,

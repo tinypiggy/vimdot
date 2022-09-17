@@ -26,6 +26,8 @@ return require("packer").startup(function(use)
 
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
 	use("L3MON4D3/LuaSnip") -- Snippets plugins
+	-- 常见编程语言代码段
+	use("rafamadriz/friendly-snippets")
 	-- lspkind
 	use("onsails/lspkind-nvim")
 	-- json 增强
@@ -34,11 +36,13 @@ return require("packer").startup(function(use)
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
 	-- lua 增强
 	use("folke/lua-dev.nvim")
-
+	-- Comment
+	use("numToStr/Comment.nvim")
 	-- git
 	use("lewis6991/gitsigns.nvim")
 	-- telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+	use({ "akinsho/toggleterm.nvim" })
 	-- project
 	use("ahmedkhalf/project.nvim")
 	-- bufferline
@@ -46,6 +50,18 @@ return require("packer").startup(function(use)
 	-- lualine
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 	use("arkav/lualine-lsp-progress")
+
+	----------------------------------------------
+	-- dap
+	use("mfussenegger/nvim-dap")
+	use("theHamsta/nvim-dap-virtual-text")
+	use("rcarriga/nvim-dap-ui")
+	use("Pocco81/DAPInstall.nvim")
+	use("nvim-telescope/telescope-dap.nvim")
+	use("jbyuki/one-small-step-for-vimkind")
+	-- vimspector
+	-- use("puremourning/vimspector")
+
 	--------------------- colorschemes --------------------
 	-- tokyonight
 	use("folke/tokyonight.nvim")
