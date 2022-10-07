@@ -1,0 +1,8 @@
+{
+  "post template": {
+    "prefix": "postt",
+    "body": "---\nlayout: post\ntitle: $1\ncategories: [$2]\ndescription: $3\nkeywords: $4\n---",
+
+    "description": "Snippet for a post template"
+  }
+}

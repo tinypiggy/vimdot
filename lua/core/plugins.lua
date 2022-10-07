@@ -42,6 +42,9 @@ return require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	-- telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+	-- telescope extensions
+	use("LinArcX/telescope-env.nvim")
+	use("nvim-telescope/telescope-ui-select.nvim")
 	use({ "akinsho/toggleterm.nvim" })
 	-- project
 	use("ahmedkhalf/project.nvim")
@@ -51,6 +54,14 @@ return require("packer").startup(function(use)
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 	use("arkav/lualine-lsp-progress")
 
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app &&npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 	----------------------------------------------
 	-- dap
 	use("mfussenegger/nvim-dap")

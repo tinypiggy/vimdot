@@ -8,6 +8,8 @@ local servers = {
 	tsserver = require("lsp.lang.ts"),
 	vuels = require("lsp.lang.vue"),
 	emmet_ls = require("lsp.lang.emmet"),
+	clangd = require("lsp.lang.clangd"),
+	marksman = require("lsp.lang.markdown"),
 }
 
 local opts = { noremap = true, silent = true }
