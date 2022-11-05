@@ -4,6 +4,7 @@ local luasnip = require("luasnip")
 -- lspkind
 local lspkind = require("lspkind")
 
+-- 加载snappet
 local function luasnip_step()
 	vim.o.runtimepath = vim.o.runtimepath .. "," .. os.getenv("HOME") .. "/.config/nvim/my-snippets/,"
 	require("luasnip").config.set_config({

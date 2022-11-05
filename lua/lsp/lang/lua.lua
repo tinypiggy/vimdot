@@ -1,11 +1,9 @@
--- config lua language server
-
 local runtime_path = vim.split(package.path, ",")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -70,4 +68,4 @@ local opts = {
 	capabilities = capabilities,
 }
 
-return require("lua-dev").setup({ lspconfig = opts })
+return opts

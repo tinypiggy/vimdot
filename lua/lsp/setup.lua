@@ -21,6 +21,9 @@ vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
 local lspconfig = require("lspconfig")
 
+local neodev = require("neodev")
+neodev.setup({})
+
 for name, config in pairs(servers) do
 	lspconfig[name].setup(config)
 end

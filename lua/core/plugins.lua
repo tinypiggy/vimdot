@@ -35,7 +35,7 @@ return require("packer").startup(function(use)
 	-- TypeScript 增强
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
 	-- lua 增强
-	use("folke/lua-dev.nvim")
+	use("folke/neodev.nvim")
 	-- Comment
 	use("numToStr/Comment.nvim")
 	-- git
@@ -70,6 +70,7 @@ return require("packer").startup(function(use)
 	use("Pocco81/DAPInstall.nvim")
 	use("nvim-telescope/telescope-dap.nvim")
 	use("jbyuki/one-small-step-for-vimkind")
+	--	use("pedrohms/dap-install")
 	-- vimspector
 	-- use("puremourning/vimspector")
 
