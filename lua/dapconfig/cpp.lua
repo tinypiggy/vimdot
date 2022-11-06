@@ -20,7 +20,7 @@ dap.adapters.lldb = {
 }
 
 dap.configurations.cpp = {
-	{
+	--[[ {
 		name = "Launch file",
 		type = "codelldb",
 		request = "launch",
@@ -29,7 +29,7 @@ dap.configurations.cpp = {
 		end,
 		cwd = "${workspaceFolder}",
 		stopOnEntry = true,
-	},
+	}, ]]
 	{
 		name = "Launch",
 		type = "lldb",

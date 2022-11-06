@@ -7,6 +7,25 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd("packadd packer.nvim")
 end
 
+-- load modules
+require("core.plugins")
+
+require("core.basic")
+require("core.nvim-tree")
+require("core.treesitter")
+require("core.keybinds")
+require("core.telescope")
+require("core.bufferline")
+require("core.lualine")
+require("core.project")
+require("core.gitsign")
+require("core.comment")
+require("core.toggleterm")
+require("core.autocmd")
+
+require("lsp")
+require("dapconfig")
+
 vim.o.background = "dark"
 vim.g.tokyonight_style = "storm" -- day / night
 -- 半透明
@@ -25,21 +44,3 @@ if not status_ok then
 	vim.notify("colorscheme: " .. colorscheme .. " 没有找到！")
 	return
 end
-
--- load modules
-require("core.basic")
-require("core.plugins")
-require("core.nvim-tree")
-require("core.treesitter")
-require("core.keybinds")
-require("core.telescope")
-require("core.bufferline")
-require("core.lualine")
-require("core.project")
-require("core.gitsign")
-require("core.comment")
-require("core.toggleterm")
-require("core.autocmd")
-
-require("lsp")
-require("debug")

@@ -83,7 +83,7 @@ local comment_mapping = {
 	-- Visual 模式
 	opleader = {
 		line = "gc",
-		bock = "gb",
+		block = "gb",
 	},
 }
 -- ct
